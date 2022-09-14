@@ -1,3 +1,5 @@
+# Tugas 2: Katalog App
+
 Link App Heroku: https://tugas-2-app.herokuapp.com/katalog/  
 Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
 <br>
@@ -26,7 +28,7 @@ menggunakan virtual environment?
    render(request, "katalog.html", context), dan mengimport CatalogItem dari models.py
    2.	Dilakukan routing dalam **url.py** dengan memetakan fungsi show_katalog dari views.py agar nantinya dapat menampilkan  
    HTML katalog pada browser. Routing dilakukan dengan menambahkan path show_katalog pada urlpatterns
-   3.	Selanjutnya dilakukan mapping data barang pada **katalog.html** yang dirender sebelumnya pada views. Data akan ditampilkan dalam bentuk  
-   table. Dimanfaatkan juga sintaks django, contohnya {{nama}}, {{npm}}, {{barang.item_name}}, dan lain-lain.
+   3.	Selanjutnya dilakukan mapping data barang pada **katalog.html** yang dirender sebelumnya pada views. Data akan ditampilkan  
+   dalam bentuk table. Dimanfaatkan juga sintaks django, contohnya {{nama}}, {{npm}}, {{barang.item_name}}, dan lain-lain.
    4.	Setelah selesai, akan dilakukan **deployment** pada Heroku dari app katalog yang telah dibuat. Pada assignment kali  
    ini, katalog dapat ditampilkan pada https://tugas-2-app.herokuapp.com/katalog/
