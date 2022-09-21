@@ -27,7 +27,7 @@ Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
     * Diawali dengan membuat folder python package dengan nama **mywatchlist** pada repo tugas minggu lalu. Setelah itu, 
     menambahkan mywatchlist pada INSTALLED_APPS di settings.py pada folder project_django. Selanjutnya juga menambah path
     mywatchlist/ dan men*include* mywatchlist.urls pada urls.py di project_django.
-    * Membuat models.py dan inisialisasi class MyWatchList dengan atribut: watched, title, rating, description, dll, serta
+    * Membuat models.py dan inisialisasi class MyWatchList dengan atribut: watched, title, rating, dll, serta
     menentukan field yang akan dipakai tiap-tiap atributnya.
     * Menambah folder fixtures yang di dalamnya berisi initial_film_data.json, dan menambahkan minimal 10 data di dalamnya.
     * Dibuat views.py yang memuat 3 fungsi, show_watchlist, show_xml, dan show_json. Fungsi-fungsi tersebut akan memanggil

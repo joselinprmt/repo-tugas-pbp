@@ -6,7 +6,6 @@
             "watched": true,
             "title": "Kimi no Nawa",
             "rating": 5,
-            "description": "Two strangers find themselves linked in a bizarre way.",
             "release_date": "3 July 2016",
             "review": "A good anime film that has a message, interesting characters, and authenticity."
         }
@@ -18,7 +17,6 @@
             "watched": true,
             "title": "Howl's Moving Castle",
             "rating": 4,
-            "description": "When an unconfident young woman is cursed with an old body by a spiteful witch.",
             "release_date": "20 Nov 2004",
             "review": "Yet another wonderful movie from Hayao Miyazaki"
         }
@@ -30,7 +28,6 @@
             "watched": false,
             "title": "Frozen",
             "rating": 3,
-            "description": "Princess Anna teams up with Kristoff and Sven and sets off on a journey to find her sister Elsa",
             "release_date": "10 Nov 2013",
             "review": "Very eye soothing scenes are in"
         }
@@ -42,7 +39,6 @@
             "watched": true,
             "title": "Frozen 2",
             "rating": 3,
-            "description": "Three years after the events of the first film, Frozen (2013)",
             "release_date": "20 Nov 2019",
             "review": "The graphics is good"
         }
@@ -54,7 +50,6 @@
             "watched": true,
             "title": "Pengabdi Setan",
             "rating": 3,
-            "description": "After dying from a strange illness, a mother returns home to pick up her children.",
             "release_date": "20 Sept 2017",
             "review": "The ideas they had at some parts were really good"
         }
@@ -66,7 +61,6 @@
             "watched": false,
             "title": "Pengabdi Setan 2",
             "rating": 4,
-            "description": "After moving from their home to an apartment building, a new terror awaits.",
             "release_date": "4 Aug 2022",
             "review": "The plot is interesting"
         }
@@ -78,7 +72,6 @@
             "watched": true,
             "title": "Spider-Man: No Way Home",
             "rating": 5,
-            "description": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help.",
             "release_date": "15 Dec 2021",
             "review": "It has comedy, action, and exciting story"
         }
@@ -90,7 +83,6 @@
             "watched": false,
             "title": "Joker",
             "rating": 3,
-            "description": "A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain.",
             "release_date": "28 Sept 2019",
             "review": "This is a movie that only those who have felt alone and isolated can truly relate to it."
         }
@@ -102,7 +94,6 @@
             "watched": true,
             "title": "Midsommar",
             "rating": 4,
-            "description": "A couple travels to Northern Europe to visit a rural hometown's fabled Swedish mid-summer festival.",
             "release_date": "24 June 2019",
             "review": "This movie was a trip, and terrifying on its on way."
         }
@@ -114,7 +105,6 @@
             "watched": true,
             "title": "Death on the Nile",
             "rating": 3,
-            "description": "While on vacation on the Nile, Hercule Poirot must investigate the murder of a young heiress.",
             "release_date": "9 Feb 2022",
             "review": "Developing of the characters isn't very well but cinematography and direction is spectacular"
         }
@@ -126,7 +116,6 @@
             "watched": true,
             "title": "Knives Out",
             "rating": 3,
-            "description": "A detective investigates the death of the patriarch of an eccentric, combative family.",
             "release_date": "27 Nov 2019",
             "review": "Found myself really enjoying the movie"
         }
