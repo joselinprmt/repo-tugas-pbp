@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from todolist.models import Task
-from todolist.form import TaskForm
+from todolist.forms import TaskForm
 
 
 @login_required(login_url='/todolist/login/')
