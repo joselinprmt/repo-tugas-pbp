@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+    <title>Tambah Task</title>
+
+{% endblock meta %}
+
+{% block content %}
+
+    <h1>Buat Task baru</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Judul Task: </td>
+                <td>{{ form.title }}</td>
+            </tr>
+
+            <tr>
+                <td>Deskripsi Task: </td>
+                <td>{{ form.description }}</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="btn" type="submit" name="Submit" value="Buat Task"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock content %}

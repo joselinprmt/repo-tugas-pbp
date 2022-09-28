@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tugas 4 PBP: Todo List</h1>
+
+<h3>Halo, {{user}}!</h3>
+
+<a href="{% url 'todolist:create_task' %}"><button>Tambah Task Baru</button></a>
+
+<p><br></p>
+
+<table>
+    <tr>
+    <th>Tanggal dibuat</th>
+    <th>Judul Task</th>
+    <th>Deskripsi</th>
+    </tr>
+    {% comment %} Daftar task yang telah ditambahkan user {% endcomment %}
+    {% for task in list_task %}
+        <tr>
+            <td>{{task.date.date}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<p> <br>
+    Username yang login: {{ user }}<br><br>
+    Sesi terakhir login: {{ last_login }}<br><br>
+</p>
+
+<a href="{% url 'todolist:logout' %}"><button>Logout</button></a>
+
+{% endblock content %}
