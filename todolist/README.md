@@ -54,4 +54,28 @@ Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
       * password: akuwkwk123  
 
       * username: Siapa
-      * paswword: XENHr8t86BAXuvx
+      * paswword: XENHr8t86BAXuvx  
+
+
+
+# Tugas 5
+
+1. Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?  
+    * Inline: Styling dilakukan di masing-masing tag HTML, digunakan untuk mengubah style pada elemen HTML yang spesifik.
+      * Kelebihan: Berguna jika kita hanya ingin mengubah style dari elemen yang khusus/spesifik
+      * Kekurangan: Membutuhkan banyak waktu untuk mengubah style dari masing-masing elemen, terutama untuk projek web   
+       yang berskala besar. Selain itu, penggunaan inline HTML yang banyak dapat memperlambat waktu loading web.
+       
+    * Internal: Styling dilakukan di < head > section dalam 1 file HTML
+      * Kelebihan: Load time web lebih cepat daripada inline CSS. Selain itu, Untuk web yang hanya membutuhkan sedikit  
+       file HTML, internal CSS lebih hemat waktu daripada implementasi inline CSS.
+      * Kekurangan: Relatif membutuhkan banyak waktu untuk menambahkan style pada web project yang berskala besar
+
+    * Eksternal: Styling dilakukan di luar file HTML, yaitu pada file .css
+      * Kelebihan: Lebih efisien untuk project web yang berskala  besar, karena kita bisa mengubah style dari situs hanya  
+       dengan 1 file CSS. Selain itu, struktur dari file kita juga lebih rapi dan mudah untuk di kostumisasi.
+      * Kekurangan: Style dari web baru bisa dilihat setelah file CSS eksternal selesai di load.
+      
+
+2. Jelaskan tag HTML5 yang kamu ketahui.
+    * 

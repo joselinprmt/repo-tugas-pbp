@@ -5,41 +5,39 @@
 {% endblock meta %}
 
 {% block content %}
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
 
-<div class = "login">
+                <form class="form-example" method="POST" action="">
+                    {% csrf_token %}
+                    <h1>Login</h1>
+                    <p class="description">Silahkan login terlebih dahulu.</p>
 
-    <h1>Login</h1>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control username" id="username" placeholder="Username" name="username">
+                    </div>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control password" id="password" placeholder="Password" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-customized" value="Login">Login</button>
+                </form>
 
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <p class="copyright"> {{ message }}</p>
+                    {% endfor %}
+                </ul>
+            {% endif %}
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+                <p class="copyright"> Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a></p>
+            </div>
+        </div>
+    </div>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
-</div>
 
 {% endblock content %}

@@ -1,35 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tugas 4 PBP: Todo List</h1>
+<style>
+    .todo {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+</style>
+<div class="todo">
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
+                <h1>Todo List</h1>
+                    <p class="description">Halo, {{user}}!</p>
 
-<h3>Halo, {{user}}!</h3>
+                    <div><a href="{% url 'todolist:create_task' %}"><button class="btn btn-primary btn-customized"> + Tambah Task Baru</button></a></div>
+                    <p><br></p>
 
-<a href="{% url 'todolist:create_task' %}"><button>Tambah Task Baru</button></a>
+                    {% for task in list_task %}
+                        <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
+                            <div class="card-header">Tanggal: {{task.date.date}}</div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{task.title}}</h4>
+                                <p class="card-text">{{task.description}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
 
-<p><br></p>
 
-<table>
-    <tr>
-    <th>Tanggal dibuat</th>
-    <th>Judul Task</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% comment %} Daftar task yang telah ditambahkan user {% endcomment %}
-    {% for task in list_task %}
-        <tr>
-            <td>{{task.date.date}}</td>
-            <td>{{task.title}}</td>
-            <td>{{task.description}}</td>
-        </tr>
-    {% endfor %}
-</table>
+                <p class="description">Sesi terakhir login: {{ last_login }}</p>
 
-<p> <br>
-    Username yang login: {{ user }}<br><br>
-    Sesi terakhir login: {{ last_login }}<br><br>
-</p>
-
-<a href="{% url 'todolist:logout' %}"><button>Logout</button></a>
-
+                <a href="{% url 'todolist:logout' %}"><button class="btn btn-primary btn-customized">Logout</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
