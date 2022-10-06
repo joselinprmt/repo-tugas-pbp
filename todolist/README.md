@@ -1,10 +1,10 @@
 # Tugas 4: ToDoList App
 
-Link App Heroku: https://tugas-2-app.herokuapp.com/todolist/  
+Link App Heroku: https://tugas-2-app.herokuapp.com/todolist/login  
 Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
 <br>
 
-1. Apa kegunaan {% csrf_token %} pada elemen < form >? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen < form >?
+1. Apa kegunaan {% csrf_token %} pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`?
     * CSRF atau Cross-Site Request Forgery token adalah value yang unik dan rahasia, yang digenerate oleh server-side  
     application, untuk mencegah serangan CSRF. Cara kerjanya adalah token diletakan pada parameter yang tersembunyi pada  
     HTML form, dan token harus bersifat unik tiap sesi dan berisi random value dengan jumlah karakter yang banyak agar  
@@ -14,8 +14,8 @@ Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
     jika kita tidak memasukan potongan kode tersebut pada form, akan menimbulkan error ketika app dijalankan.
    
 
-2. Apakah kita dapat membuat elemen < form > secara manual (tanpa menggunakan generator seperti {{ form.as_table }})?   
-   Jelaskan secara gambaran besar bagaimana cara membuat < form > secara manual.
+2. Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan generator seperti {{ form.as_table }})?   
+   Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
     * Bisa. Sesuai docs pada Django, terdapat beberapa opsi yang disediakan untuk merender forms. Namun, kita bisa merender  
     form secara manual, misalnya jika kita ingin mengganti urutan dari attribute pada form, dengan memanfaatkan sintaks  
     {{ form.nama_field }} dan mengubah tata letak dari masing-masing attribut field sesuai keinginan.
@@ -58,7 +58,7 @@ Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
 
 
 
-# Tugas 5
+# Tugas 5: Todolist Design
 
 1. Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?  
     * Inline: Styling dilakukan di masing-masing tag HTML, digunakan untuk mengubah style pada elemen HTML yang spesifik.
@@ -66,7 +66,7 @@ Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
       * Kekurangan: Membutuhkan banyak waktu untuk mengubah style dari masing-masing elemen, terutama untuk projek web   
        yang berskala besar. Selain itu, penggunaan inline HTML yang banyak dapat memperlambat waktu loading web.
        
-    * Internal: Styling dilakukan di < head > section dalam 1 file HTML
+    * Internal: Styling dilakukan di dalam 1 file HTML, dengan diapit oleh `<style>` tag
       * Kelebihan: Load time web lebih cepat daripada inline CSS. Selain itu, Untuk web yang hanya membutuhkan sedikit  
        file HTML, internal CSS lebih hemat waktu daripada implementasi inline CSS.
       * Kekurangan: Relatif membutuhkan banyak waktu untuk menambahkan style pada web project yang berskala besar
@@ -78,4 +78,35 @@ Link Repo: https://github.com/joselinprmt/repo-tugas-pbp
       
 
 2. Jelaskan tag HTML5 yang kamu ketahui.
-    * 
+    * `<head>` berisi metadata dokumen seperti title, script, dan style sheet
+    * `<style>` berisi implementasi style yang digunakan pada HTML
+    * `<title>` berisi title yang akan ditampilkan pada title bar atau page's title pada browser
+    * `<body>` berisi seluruh bagian body atau konten dari dokumen
+    * `<header>` berisi header dari dokumen, biasanya digunakan untuk mempermudah navigasi pada web
+    * `<h1> sampai <h6>` merepresentasikan section headings
+    * `<div>` digunakan sebagai generic container dari konten
+    * `<p>` merepresentasikan paragraf
+    * `<br>` digunakan untuk line break
+    * `<table>` merepresentasikan penyajian suatu tabel
+    * `<td>` berisi data dari tabel
+    * `<th>` merupakan tabel header
+    * `<form>` digunakan untuk menandakan section untuk mengontrol flow ketika mensubmit informasi
+    * `<button>` merpresentasikan elemen interaktif button, yang dapat dimanfaatkan untuk menjalankan suatu perintah
+    * `<input>` digunakan untuk menginput informasi dari user
+
+
+3. Jelaskan tipe-tipe CSS selector yang kamu ketahui.  
+    CSS selector yang saya ketahui, yang pertama adalah **class selector**. Cara kerjanya dengan menggunakan sintaks  
+    `.namaclass`, yang akan men-select semua elemen dengan atribut `namaclass`. Contohnya, `.deskripsi` akan menselect  
+    semua elemen dengan attribut `class="deskrpsi"`. Selanjutnya adalah **type selector** yang akan menselect semua elemen  
+    dengan tipe yang bersesuaian. Contohnya `h3` akan menselect semua elemen `<h3>`.
+
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.  
+    Pertama, dilakukan inialisasi library bootstrap pada bagian base html, yang kemudian akan di extend pada file html dari  
+    createtask, login, register, dan todolist. Selain itu dilakukan juga inisialisasi `<style>` di bagian `<head>` agar  
+    dapat diselect oleh elemen pada file-file yang diextend tadi. Setelah itu dilakukan styling pada masing-masing template.  
+
+    Setelah itu, diimplementasikan juga cards pada masing-masing task todolist yang dibuat pada halaman todolist. Dilakukan  
+    juga kustomisasi agar halaman menjadi responsif, dengan memanfaatkan container, padding, `<div>`, dan lain-lain. Setelah  
+    diimplementasikan kustomisasi tersebut, konten dari web akan menjadi lebih dinamis mengikuti ukuran screen.
