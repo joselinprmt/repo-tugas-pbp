@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.core import serializers
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from todolist.models import Task
@@ -71,3 +72,27 @@ def create_task(request):
         return HttpResponseRedirect(reverse("todolist:show_todolist"))
     context = {'form': form}
     return render(request, 'createtask.html', context)
+
+
+@login_required(login_url='/todolist/login/')
+def show_json_todo(request):
+    data = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
+@login_required(login_url='/todolist/login/')
+def create_task_ajax(request):
+    if request.method == 'POST':
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        task = Task.objects.create(user=request.user, date=datetime.date.today(), title=title, description=description)
+        data = {
+                "pk": task.pk,
+                "fields": {
+                    "user": task.user,
+                    "date": task.date,
+                    "title": task.title,
+                    "description": task.description,
+                }}
+        return JsonResponse(data)
+    return HttpResponseBadRequest()

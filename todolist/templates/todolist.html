@@ -1,5 +1,39 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<script>
+    const addCard = (task) => {
+        $("#daftar_task").append(`
+        <div class="card bg-light mb-3" style="max-width: 50rem; color:black;">
+            <div class="card-header">Tanggal: ${task.fields.date}</div>
+            <div class="card-body">
+                <h4 class="card-title">${task.fields.title}</h4>
+                <p style="color:black;" class="card-text">${task.fields.description}</p>
+                <button class="btn btn-primary">Hapus Task</button>
+            </div>
+        </div>`);
+    }
+
+    var addTask = function() {
+        var taskCards = $("#add-task").serialize();
+
+        if ($("#title").val() && $("#description").val()) {
+            $.ajax({ type: "POST", data: taskCards, url: "add/", dataType: "json", encode: true,}).
+                done(function (data) {
+                    addCard(data);
+                    $("#add-task").trigger("reset");
+                })
+        }
+    }
+
+    $.getJSON('json/', function(data) {
+        data.forEach(task => {
+            addCard(task);
+        });
+    });
+</script>
+{% endblock meta %}
+
 {% block content %}
 <style>
     .todo {
@@ -7,6 +41,7 @@
         padding-bottom: 100px;
     }
 </style>
+
 <div class="todo">
     <div class="container h-100">
         <div class="row h-100 justify-content-center align-items-center">
@@ -14,19 +49,48 @@
                 <h1>Todo List</h1>
                     <p class="description">Halo, {{user}}!</p>
 
-                    <div><a href="{% url 'todolist:create_task' %}"><button class="btn btn-primary btn-customized"> + Tambah Task Baru</button></a></div>
+                    <!-- Button untuk trigger modal -->
+                    <div> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    + Tambah Task baru
+                    </button></div>
                     <p><br></p>
 
-                    {% for task in list_task %}
-                        <div class="card text-white bg-dark mb-3" style="max-width: 50rem;">
-                            <div class="card-header">Tanggal: {{task.date.date}}</div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{task.title}}</h4>
-                                <p class="card-text">{{task.description}}</p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" style="color:black;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Tambah task</h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <form method="POST" action="" id="add-task" class="p-3 m-0 border-0 bd-example" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <div class="mb-3">
+                                            <label for="title" class="col-form-label" style="float: left;">Judul Task:</label>
+                                            <input type="text" class="form-control" id="title" name="title">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description" class="col-form-label" style="float: left;">Deskripsi:</label>
+                                            <textarea class="form-control" id="description" name="description"></textarea>
+                                        </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="submit" name="submit" onclick="addTask()" class="btn btn-primary" data-bs-dismiss="modal">Buat task</button>
+                                    </div>
+                                    </form>
+
+                                </div>
                             </div>
                         </div>
-                    {% endfor %}
 
+                <div class="container-fluid" id="daftar_task">
+
+                </div>
 
                 <p class="description">Sesi terakhir login: {{ last_login }}</p>
 
