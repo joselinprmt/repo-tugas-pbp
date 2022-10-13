@@ -7,6 +7,8 @@ from django.core import serializers
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, HttpResponseBadRequest
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
 from todolist.models import Task
 from todolist.forms import TaskForm
 
@@ -81,18 +83,19 @@ def show_json_todo(request):
 
 
 @login_required(login_url='/todolist/login/')
+@csrf_exempt
 def create_task_ajax(request):
     if request.method == 'POST':
-        title = request.POST.get("title")
-        description = request.POST.get("description")
+        title = request.POST.get('title')
+        description = request.POST.get('description')
         task = Task.objects.create(user=request.user, date=datetime.date.today(), title=title, description=description)
         data = {
-                "pk": task.pk,
-                "fields": {
-                    "user": task.user,
-                    "date": task.date,
-                    "title": task.title,
-                    "description": task.description,
+                'pk': task.pk,
+                'fields': {
+                    'user': task.user,
+                    'date': task.date,
+                    'title': task.title,
+                    'description': task.description,
                 }}
         return JsonResponse(data)
     return HttpResponseBadRequest()

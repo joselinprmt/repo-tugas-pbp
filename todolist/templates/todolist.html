@@ -18,15 +18,15 @@
         var taskCards = $("#add-task").serialize();
 
         if ($("#title").val() && $("#description").val()) {
-            $.ajax({ type: "POST", data: taskCards, url: "add/", dataType: "json", encode: true,}).
+            $.ajax({ type: "POST", data: taskCards, url: "/todolist/add/", dataType: "json", encode: true,}).
                 done(function (data) {
                     addCard(data);
-                    $("#add-task").trigger("reset");
+                $("#add-task").trigger("reset");
                 })
         }
     }
 
-    $.getJSON('json/', function(data) {
+    $.getJSON('/todolist/json/', function(data) {
         data.forEach(task => {
             addCard(task);
         });
@@ -51,8 +51,12 @@
 
                     <!-- Button untuk trigger modal -->
                     <div> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    + Tambah Task baru
-                    </button></div>
+                            + Tambah Task baru (Modal) </button>
+                        <a href="{% url 'todolist:create_task' %}">
+                        <button class="btn btn-primary btn-customized">
+                            + Tambah Task Baru</button>
+                        </a>
+                    </div>
                     <p><br></p>
 
                         <!-- Modal -->
@@ -88,9 +92,18 @@
                             </div>
                         </div>
 
-                <div class="container-fluid" id="daftar_task">
-
+                <div class="grid lg:grid-cols-4 md:grid-cols-3 gap-5 mt-8 sm:mt-5" id="daftar_task">
                 </div>
+
+                   {% for task in list_task %}
+                        <div class="card bg-light mb-3" style="max-width: 50rem; color:black;">
+                            <div class="card-header">Tanggal: {{task.date.date}}</div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{task.title}}</h4>
+                                <p style="color:black;" class="card-text">{{task.description}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
 
                 <p class="description">Sesi terakhir login: {{ last_login }}</p>
 
